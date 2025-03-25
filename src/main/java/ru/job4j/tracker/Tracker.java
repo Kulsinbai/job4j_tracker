@@ -17,21 +17,21 @@ public class Tracker {
     }
 
     public Item[] findByName(String key) {
-        Item[] result = new Item[size]; // Временный массив
-        int count = 0; // Счётчик найденных элементов
+        Item[] result = new Item[size];
+        int count = 0;
 
         for (int i = 0; i < size; i++) {
             if (items[i].getName().equals(key)) {
-                result[count++] = items[i]; //
+                result[count++] = items[i];
             }
         }
-        return Arrays.copyOf(result, count); //
+        return Arrays.copyOf(result, count);
     }
 
     public Item findById(int id) {
         for (int i = 0; i < size; i++) {
             if (items[i].getId() == id) {
-                return items[i]; //
+                return items[i];
             }
         }
         return null;
