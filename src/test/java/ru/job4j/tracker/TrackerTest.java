@@ -33,6 +33,7 @@ public class TrackerTest {
         Item result = tracker.findAll()[0];
         assertThat(result.getName()).isEqualTo(first.getName());
     }
+
     @Test
     public void whenTestFindByNameCheckArrayLength() {
         Tracker tracker = new Tracker();
