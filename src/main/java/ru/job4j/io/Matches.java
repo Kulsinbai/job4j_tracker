@@ -14,9 +14,9 @@ public class Matches {
 
             int matches = Integer.parseInt(input.nextLine());
 
-            if (matches >= 1 && matches <= 3 && matches <= count) {
+            if (matches >= 1 && matches <= Math.min(3, count)) {
                 count = count - matches;
-                System.out.println(player + "взял " + matches + " спичек");
+                System.out.println(player + " взял " + matches + " спичек");
                 System.out.println("Осталось спичек: " + count);
 
                 turn = !turn;
