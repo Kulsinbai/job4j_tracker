@@ -35,7 +35,7 @@ class StartUITest {
         Item item = new Item("Fix PC");
         tracker.add(item);
         String[] answers = {
-                String.valueOf(item.getId()), // id сохраненной заявки в объект tracker.
+                String.valueOf(item.getId()),
                 "edited item"
         };
         Input input = new MockInput(answers);
