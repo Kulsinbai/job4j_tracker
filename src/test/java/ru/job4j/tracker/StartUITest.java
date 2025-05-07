@@ -41,7 +41,6 @@ class StartUITest {
         Input input = new MockInput(answers);
         StartUI.deleteItem(input, tracker);
         Item deleted = tracker.findById(item.getId());
-        Item expected = null;
-        assertThat(deleted).isEqualTo(expected);
+        assertThat(deleted).isNull();
     }
 }
