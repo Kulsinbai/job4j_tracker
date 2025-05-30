@@ -9,6 +9,13 @@ public class SingleTracker {
     private SingleTracker() {
     }
 
+    public static SingleTracker getInstance() {
+        if (instance == null) {
+            instance = new SingleTracker();
+        }
+        return instance;
+    }
+
     public Item add(Item item) {
         return tracker.add(item);
     }
@@ -31,12 +38,5 @@ public class SingleTracker {
 
     public boolean delete(int id) {
         return tracker.delete(id);
-    }
-
-    public static SingleTracker getInstance() {
-        if (instance == null) {
-            instance = new SingleTracker();
-        }
-        return instance;
     }
 }
