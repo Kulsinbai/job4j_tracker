@@ -1,12 +1,10 @@
 package ru.job4j.tracker;
-import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Tracker {
     private final List<Item> items = new ArrayList<>();
     private int ids = 1;
-    private int size = 0;
 
     public Item add(Item item) {
         item.setId(ids++);
@@ -29,33 +27,26 @@ public class Tracker {
     }
 
     public Item findById(int id) {
-        for (Item item : items) {
-            if (item.getId() == id) {
-                return item;
-            }
-        }
-        return null;
+        int idx = indexOf(id);
+        return idx != -1 ? items.get(idx) : null;
     }
 
     public boolean replace(int id, Item newItem) {
-        for (int i = 0; i < items.size(); i++) {
-            if (items.get(i).getId() == id) {
+        int idx = indexOf(id);
+            if (idx != -1) {
                 newItem.setId(id);
-                items.set(i, newItem);
+                items.set(idx, newItem);
                 return true;
             }
-        }
         return false;
     }
 
     public boolean delete(int id) {
-        Iterator<Item> it = items.iterator();
-        while (it.hasNext()) {
-            if (it.next().getId() == id) {
-                it.remove();
+        int idx = indexOf(id);
+            if (idx != -1) {
+                items.remove(idx);
                 return true;
             }
-        }
         return false;
     }
 
