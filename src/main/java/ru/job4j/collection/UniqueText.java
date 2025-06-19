@@ -17,6 +17,6 @@ public class UniqueText {
                 return false;
             }
         }
-        return result;
+        return true;
     }
 }
