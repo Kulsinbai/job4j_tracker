@@ -44,20 +44,18 @@ public class AnalyzeByMap {
 
         for (Pupil pupil : pupils) {
             for (Subject subj : pupil.subjects()) {
-                String name = subj.name();
-                int score = subj.score();
-
-                sums.put(name, sums.getOrDefault(name, 0) + score);
-                counts.put(name, counts.getOrDefault(name, 0) + 1);
+                String subjName = subj.name();
+                sums.put(subjName, sums.getOrDefault(subjName, 0) + subj.score());
+                counts.put(subjName, counts.getOrDefault(subjName, 0) + 1);
             }
         }
 
         List<Label> result = new ArrayList<>();
         for (String name : sums.keySet()) {
-            double total = sums.get(name);
-            int times = counts.get(name);
-            double average = times == 0 ? 0D : total / times;
-            result.add(new Label(name, average));
+            int  sum   = sums.get(name);
+            int  count = counts.get(name);
+            double avg = count == 0 ? 0D : (double) sum / count;
+            result.add(new Label(name, avg));
         }
         return result;
     }
