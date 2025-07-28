@@ -61,14 +61,14 @@ public class AnalyzeByMap {
     }
 
     public static Label bestStudent(List<Pupil> pupils) {
-        Label best = new Label("", 0D);
+        Label best = null;
 
         for (Pupil pupil : pupils) {
             double sum = 0;
             for (Subject subj : pupil.subjects()) {
                 sum += subj.score();
             }
-            if (sum > best.score()) {
+            if (best == null || sum > best.score()) {
                 best = new Label(pupil.name(), sum);
             }
         }
