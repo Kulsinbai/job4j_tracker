@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,16 +18,15 @@ class ItemAscByNameTest {
                 new Item("Виктор")
         );
 
-        items.sort(new ItemAscByName());
+        Collections.sort(items, new ItemAscByName());
 
-        List<String> actual = new ArrayList<>();
-        for (Item it : items) {
-            actual.add(it.getName());
-        }
+        List<Item> expected = Arrays.asList(
+                new Item("Аня"),
+                new Item("Борис"),
+                new Item("Виктор")
+        );
 
-        List<String> expected = Arrays.asList("Аня", "Борис", "Виктор");
-
-        assertEquals(expected, actual);
+        assertEquals(expected, items);
     }
 
     @Test
@@ -37,15 +37,12 @@ class ItemAscByNameTest {
                 new Item("Виктор")
         );
 
-        items.sort(new ItemDescByName());
+        Collections.sort(items, new ItemDescByName());
 
-        List<String> actual = new ArrayList<>();
-        for (Item it : items) {
-            actual.add(it.getName());
-        }
-
-        List<String> expected = Arrays.asList("Виктор", "Борис", "Аня");
-
-        assertEquals(expected, actual);
+        List<Item> expected = Arrays.asList(
+                new Item("Виктор"),
+                new Item("Борис"),
+                new Item("Аня")
+        );
     }
 }
