@@ -43,5 +43,7 @@ class ItemAscByNameTest {
                 new Item("Борис"),
                 new Item("Аня")
         );
+
+        assertEquals(expected, items);
     }
 }
