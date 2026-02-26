@@ -13,7 +13,7 @@ public class Car {
 
     private String color;
 
-    private Car() {}
+    private Car() { }
 
     @Override
     public String toString() {
