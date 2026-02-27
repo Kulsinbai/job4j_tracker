@@ -22,7 +22,7 @@ public class PhoneDictionary {
                         .or(predPhone)
                         .or(predAddress);
 
-        for (Person person : persons) {
+        for (var person : persons) {
             if (combine.test(person)) {
                 result.add(person);
             }
